@@ -38,9 +38,10 @@
   text-align: center;
   color: cornsilk;
   padding: 0px;
-  position: absolute;
+  position: relative;
   width: 100%;
   bottom: 0;
+  visibility: hidden;
 }
 
 /* blog previews / list */

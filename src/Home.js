@@ -23,6 +23,10 @@ const Home = () => {
         {title: 'Web dev top tips', body: 'lorem ipsum ....', author: 'mario', id: 3}
     ]);
 
+    const handleDelete = (id)=>{
+        const newBlogs = blogs.filter((blog)=> blog.id!== id)
+        setBlogs(newBlogs)
+    }
 
     
     return ( 
@@ -37,9 +41,12 @@ const Home = () => {
             <br />
             <button onClick={()=> handleClickAgain('mario')}>Click me again</button>
             <br />
-            <br /> */}
+            <br /> 
+            <BlogList blogs={blogs.filter( (blog)=> blog.author === 'mario')} title="Mario's Blogs!"/>
+            */}
 
-            <BlogList blogs={blogs} title='All Blogs!'/>
+            <BlogList blogs={blogs} title='All Blogs!' handleDelete={handleDelete}/>
+            
             
 
 
