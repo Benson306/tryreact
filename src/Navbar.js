@@ -1,5 +1,3 @@
-import './footer.css'
-
 const Navbar = () => { //sfc
     return (  
         <nav className="navbar">
