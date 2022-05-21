@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import BlogList from "./BlogList";
+import useFetch from './useFetch';
 
 const Home = () => {
     // let sname = 'benji';
@@ -28,41 +29,14 @@ const Home = () => {
     //     setBlogs(newBlogs)
     // }
 
-    const [blogs, setBlogs] = useState(null);
-
-    const [name, setName] = useState('Benji');
-
-    const [isPending, setIsPending] = useState(true);
-
-    const [error, setError] = useState(null);
-   
 
     // useEffect(()=>{
     //     console.log(name);
     // },[name]);
 
-    useEffect(()=>{
-        setTimeout( ()=>{
-            fetch('http://localhost:8000/blogs')
-                .then( res=>{
-                    if(!res.ok){
-                        throw Error('Could Not Fetch Data')
-                    }
-                    return res.json();
-                })
-                .then((data)=>{
-                    console.log(data)
-                    setBlogs(data)
-                    setIsPending(false)
-                    setError(null)
-                })
-                .catch((err)=>{
-                    setIsPending(false)
-                    setError(err.message)
-                });
-        
-        }, 2000)
-    }, []);
+    // const [name, setName] = useState('Benji');
+
+    const {data: blogs, isPending, error} = useFetch('http://localhost:8000/blogs');
     
     return ( 
         <div className="home">
@@ -82,15 +56,15 @@ const Home = () => {
 
             {/* {blogs && <BlogList blogs={blogs} title='All Blogs!' handleDelete={handleDelete}/> } */}
 
+            
+            {/* <button onClick={()=>setName('Luigi')}>Change Name</button>
+            <p>{name}</p> */}
+            
             {error && <div>{error}</div>}
 
             {isPending &&   <div>Loading ....</div> }
             {blogs && <BlogList blogs={blogs} title='All Blogs!'/>} 
             <br />
-            <button onClick={()=>setName('Luigi')}>Change Name</button>
-            <p>{name}</p>
-            
-            
 
 
         </div>
