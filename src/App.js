@@ -25,19 +25,19 @@ function App() {
           </Route>
         </Switch>
         
-        
-        {/* <h1>{ title }</h1>
-        <p>Liked: { likes } times</p>
-        <p>{10 + 5}</p>
-        <p>{"Hey Ninjas"}</p>
-        <p>{ Math.random() +10 }</p>
-        <a href={link}>My App</a> */}
       </div>
       <div className='footer' style={{
         backgroundColor: 'black'
       }}>
         <Footer />
       </div>
+
+      {/* <h1>{ title }</h1>
+        <p>Liked: { likes } times</p>
+        <p>{10 + 5}</p>
+        <p>{"Hey Ninjas"}</p>
+        <p>{ Math.random() +10 }</p>
+        <a href={link}>My App</a> */}
       
     </div>
 
